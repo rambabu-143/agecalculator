@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+
+  <title>Frontend Mentor | Age calculator app</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    body{
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      background-color: hsl(0, 0%, 100%);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: [Poppins](https://fonts.google.com/specimen/Poppins);
+    
+    }
+
+    .all {
+      background-color:  hsl(0, 0%, 94%);
+      display: flex;
+      flex-direction: column;
+      border-top-left-radius: 10px;
+      border-top-right-radius: 10px;
+      border-bottom-left-radius: 10px;
+      border-bottom-right-radius: 120px;
+      padding: 10px 10px;
+    }
+
+    .values {
+      display: flex;
+
+      justify-content: center;
+      align-items: center;
+    }
+
+    .all h4 {
+      margin: 0px 20px;
+      color:hsl(0, 1%, 44%);
+    }
+
+    .all input {
+      margin: 0px 20px;
+      height: 40px;
+      width: 90px;
+      border-radius: 5px;
+      border-width: 1px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    #arrow {
+      background-color: hsl(259, 100%, 65%);
+      height: 70px;
+      width: 70px;
+      border-radius: 50%;
+      border-width: 0px;
+    }
+
+    #rightyear {
+      color: red;
+      font-size: x-small;
+      margin-top: 5px;
+      margin-left: 10px;
+      padding-left: 10px;
+      display: none;
+    }
+
+    #rightmonth {
+      color: red;
+      font-size: x-small;
+      margin-top: 5px;
+      margin-left: 10px;
+      padding-left: 10px;
+      display: none;
+    }
+
+    #rightdate {
+      color: red;
+      font-size: x-small;
+      margin-top: 5px;
+      margin-left: 10px;
+      padding-left: 10px;
+      display: none;
+    }
+
+    .date {
+      display: flex;
+      flex-direction: column;
+      /* background-color:  hsl(0, 0%, 86%); */
+    }
+
+    .month {
+      display: flex;
+      flex-direction: column;
+      /* background-color:  hsl(0, 0%, 86%); */
+
+    }
+
+    .year {
+      display: flex;
+      flex-direction: column;
+      /* background-color:  hsl(0, 0%, 86%); */
+    }
+    #resu{
+      color:hsl(259, 100%, 65%) ;
+    }
+    #resu1{
+      color:hsl(259, 100%, 65%) ;
+    }
+    #resu2{
+      color:hsl(259, 100%, 65%) ;
+    }
+    .soci{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
+    #arrow{
+      cursor: pointer;
+    }
+    input:hover{
+      border-color: black;
+      border-style: dashed;
+      border-width: 1px;
+      cursor: pointer;
+    }
+    #arrow:hover{
+      background-color: black;
+    }
+    pre{
+      color: hsl(0, 0%, 86%);
+    }
+    ::placeholder{
+      color: hsl(0, 0%, 86%);
+      font-weight: bolder;
+    }
+    h1{
+      color: hsl(0, 0%, 8%)
+    }
+  </style>
+</head>
+
+<body>
+  <div class="all">
+    <div class="values">
+      <div class="date">
+        <h4>Day</h4>
+        <input type="number" name="Date" id="date" placeholder="DD">
+
+        <span id="rightdate">Must be a valid day</span>
+      </div>
+
+      <div class="month">
+        <h4>Month</h4>
+        <input type="number" name="Month" id="month" placeholder="MM">
+        <span id="rightmonth">Must be a valid Month</span>
+      </div>
+      <div class="year">
+        <h4>Year</h4>
+        <input type="number" name="Year" id="year" placeholder="YYYY">
+        <span id="rightyear">Enter the correct Year</span>
+      </div>
+
+    </div>
+    <br>
+    <div class="soci">
+    <pre>_____________________________________________</pre>
+    <button id="arrow" onclick="Yearres()"><svg xmlns="http://www.w3.org/2000/svg" width="46" height="44"
+        viewBox="0 0 46 44">
+        <g fill="none" stroke="#FFF" stroke-width="2">
+          <path d="M1 22.019C8.333 21.686 23 25.616 23 44M23 44V0M45 22.019C37.667 21.686 23 25.616 23 44" />
+        </g>
+      </svg></button>
+    </div>
+      <h1><span id="resu">--</span>Years</h1>
+      <h1><span id="resu1">--</span>Months</h1>
+      <h1><span id="resu2">--</span>Days</h1>
+  </div>
+  <script>
+    function Yearres() {
+      var thisyear = Number("2023");
+      var thismonth = Number("08");
+      var thisdate = Number("08");
+      var yearresult;
+      var monthresult;
+      var dateresult;
+      if (year.value > 2023) {
+        document.getElementById("year").style.borderColor = "red";
+        document.getElementById("rightyear").style.display = "block";
+        document.getElementById("resu").style.display="none";
+        document.getElementById("resu1").style.display="none";
+        document.getElementById("resu2").style.display="none";
+      }
+      else {
+        document.getElementById("year").style.borderColor = "";
+        document.getElementById("rightyear").style.display = "none";
+        document.getElementById("resu").style.display="flex";
+        document.getElementById("resu1").style.display="flex";
+        document.getElementById("resu2").style.display="flex";
+      }
+      if (month.value > 12) {
+        document.getElementById("month").style.borderColor = "red";
+        document.getElementById("rightmonth").style.display = "block";
+        document.getElementById("resu").style.display="none";
+        document.getElementById("resu1").style.display="none";
+        document.getElementById("resu2").style.display="none";
+      }
+      else {
+        document.getElementById("month").style.borderColor = "";
+        document.getElementById("rightmonth").style.display = "none";
+        document.getElementById("resu").style.display="flex";
+        document.getElementById("resu1").style.display="flex";
+        document.getElementById("resu2").style.display="flex";
+      }
+      if (date.value > 31) {
+        document.getElementById("date").style.borderColor = "red";
+        document.getElementById("rightdate").style.display = "block";
+        document.getElementById("resu").style.display="none";
+        document.getElementById("resu1").style.display="none";
+        document.getElementById("resu2").style.display="none";
+      }
+      else {
+        document.getElementById("date").style.borderColor = "";
+        document.getElementById("rightdate").style.display = "none";
+        document.getElementById("resu").style.display="flex";
+        document.getElementById("resu1").style.display="flex";
+        document.getElementById("resu2").style.display="flex";
+      }
+
+      if (thismonth < month.value && thisdate < date.value) {
+        tisdate = thisdate + 31;
+        tismonth = thismonth + 11;
+        tisyear = thisyear - 1;
+        var dateresult = tisdate - date.value;
+        var monthresult = tismonth - month.value;
+        var yearresult = tisyear - year.value;
+        document.getElementById("resu").innerText = yearresult;
+        document.getElementById("resu1").innerText = monthresult;
+        document.getElementById("resu2").innerText = dateresult;
+      }
+      else if (thisdate < date.value) {
+        var thedate = thisdate + 31;
+        var themonth = thismonth - 1;
+        monthresult = themonth - month.value;
+        dateresult = thedate - date.value;
+        yearresult = thisyear - year.value;
+        document.getElementById("resu").innerText = yearresult;
+        document.getElementById("resu1").innerText = monthresult;
+        document.getElementById("resu2").innerText = dateresult;
+      }
+
+      else if (thismonth < month.value) {
+        var thiyear = thisyear - 1;
+        var thimonth = thismonth + 10;
+        monthresult = thimonth - month.value;
+        dateresult = thisdate - date.value;
+        yearresult = thiyear - year.value;
+        document.getElementById("resu").innerText = yearresult;
+        document.getElementById("resu1").innerText = monthresult;
+        document.getElementById("resu2").innerText = dateresult;
+      }
+      else{
+        document.getElementById("year").style.borderColor = "red";
+        document.getElementById("rightyear").style.display = "block";
+        document.getElementById("month").style.borderColor = "red";
+        document.getElementById("rightmonth").style.display = "block";
+        document.getElementById("date").style.borderColor = "red";
+        document.getElementById("rightdate").style.display = "block";
+      }
+
+
+    }
+
+
+  </script>
+  <script>
+  </script>
+</body>
+
+</html>
